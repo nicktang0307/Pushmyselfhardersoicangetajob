@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Daybeat</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+
+
+<body>
+  <section id="welcome">
+    <h1>MAKE<br>YOUR<br>MOVE.</h1>
+    <p>Start working, stop scrolling </p>
+    <a href="#tasks">Start now</a>
+
+ <div class="keroro-row" aria-hidden="true"></div>
+  </section>
+
+  <section id="tasks" hidden>
+  <div class="dashboard">
+
+    <div class="dashboard-header">
+      <div>
+        <p class="eyebrow">YOUR DAILY EFFORT</p>
+        <h1>Start from 1 <br> no Start from 0!</h1>
+      </div>
+
+      <div class="daily-score">
+        <span>Score</span>
+        <strong>0</strong>
+      </div>
+    </div>
+
+	<img
+    class="dashboard-gif"
+    src="rem-re-zero-rem.gif"
+    alt=""
+    aria-hidden="true"
+  >
+
+
+    <div class="chart-scroll">
+      <div class="effort-chart">
+
+        <button
+  class="chart-column category-english"
+  type="button"
+  data-page="#english"
+  
+>
+          <div class="bar-track">
+            <span class="bar-value">0</span>
+            <div class="bar-fill"></div>
+          </div>
+          <span class="bar-label">🇬🇧 English</span>
+        </button>
+
+        <button
+  class="chart-column category-japanese"
+  type="button"
+  data-page="#japanese"
+>
+          <div class="bar-track">
+            <span class="bar-value">0</span>
+            <div class="bar-fill"></div>
+          </div>
+          <span class="bar-label">🇯🇵 Japanese</span>
+        </button>
+
+        <button class="chart-column category-projects" type="button"
+                >
+          <div class="bar-track">
+            <span class="bar-value">0</span>
+            <div class="bar-fill"></div>
+          </div>
+          <span class="bar-label">💻 Projects<br>& Skills</span>
+        </button>
+
+        <button class="chart-column category-unsw" type="button"
+                >
+          <div class="bar-track">
+            <span class="bar-value">0</span>
+            <div class="bar-fill"></div>
+          </div>
+          <span class="bar-label">🎓 UNSW</span>
+        </button>
+
+        <button class="chart-column category-career" type="button"
+                >
+          <div class="bar-track">
+            <span class="bar-value">0</span>
+            <div class="bar-fill"></div>
+          </div>
+          <span class="bar-label">💼 Career</span>
+        </button>
+
+        <button
+  class="chart-column category-fitness"
+  type="button"
+  data-page="#fitness"
+>
+  <div class="bar-track">
+    <span class="bar-value">0</span>
+    <div class="bar-fill"></div>
+  </div>
+
+  <span class="bar-label">💪 Fitness</span>
+</button>
+
+      </div>
+    </div>
+
+    <a href="#welcome" class="back-link">Back</a>
+
+  </div>
+</section>
+
+<section id="english" hidden>
+  <div class="english-content">
+    <p class="english-eyebrow">ENGLISH · READING</p>
+
+    <h1>TIME TO READ.</h1>
+
+    <p class="english-question">
+      How long do you want to read an article today?
+    </p>
+
+    <label for="reading-minutes">Your reading time</label>
+
+    <div class="custom-time-bar">
+      <input
+        id="reading-minutes"
+        type="number"
+        min="1"
+        max="1440"
+        step="1"
+        value="15"
+        required
+      >
+      <span>minutes</span>
+    </div>
+
+    <div id="reading-timer" role="timer" aria-label="Time remaining">
+      15:00
+    </div>
+
+    <div class="timer-actions">
+      <button id="start-reading" type="button">
+        Start reading
+      </button>
+
+      <button id="reset-reading" type="button">
+        Reset
+      </button>
+    </div>
+
+    <p id="timer-status" role="status">Make some time for yourself.</p>
+
+<div id="reading-complete" hidden>
+  <a href="#listening" data-page="#listening">
+    Next → Listening
+  </a>
+
+  <a href="#tasks">Back to histogram</a>
+</div>
+
+    <p class="timer-note">
+  Completed sessions count towards today's score.
+  Pause whenever you take a break.
+</p>
+
+    <div>
+      <a href="#tasks">← Back</a>
+    </div>
+  </div>
+</section>
+
+<section id="listening" hidden>
+  <div class="english-content">
+    <p class="english-eyebrow">ENGLISH · LISTENING</p>
+
+    <h1>TIME TO LISTEN.</h1>
+
+    <p class="english-question">
+      How long do you want to listen to English today?
+    </p>
+
+    <p class="timer-note">
+      Podcasts, videos, audiobooks or IELTS — your choice.
+    </p>
+
+    <label for="listening-minutes">Your listening time</label>
+
+    <div class="custom-time-bar">
+      <input
+        id="listening-minutes"
+        type="number"
+        min="1"
+        max="1440"
+        step="1"
+        value="15"
+        required
+      >
+      <span>minutes</span>
+    </div>
+
+    <div id="listening-timer" role="timer">
+      15:00
+    </div>
+
+    <div class="timer-actions">
+      <button id="start-listening" type="button">
+        Start listening
+      </button>
+
+      <button id="reset-listening" type="button">
+        Reset
+      </button>
+    </div>
+
+    <p id="listening-status" role="status">
+      Ready when you are.
+    </p>
+
+    <div id="listening-complete" hidden>
+  <a href="#writing" data-page="#writing">
+    Next → Writing
+  </a>
+
+  <a href="#tasks">Back to histogram</a>
+</div>
+  </div>
+</section>
+
+<section id="writing" hidden>
+  <div class="english-content">
+    <p class="english-eyebrow">ENGLISH · WRITING</p>
+
+    <h1>MAKE WORDS COUNT.</h1>
+
+    <p class="english-question">
+      How long do you want to write in English today?
+    </p>
+
+    <p class="timer-note">
+      A journal, an essay, a short story or IELTS practice.
+    </p>
+
+    <label for="writing-minutes">Your writing time</label>
+
+    <div class="custom-time-bar">
+      <input
+        id="writing-minutes"
+        type="number"
+        min="1"
+        max="1440"
+        step="1"
+        value="15"
+        required
+      >
+      <span>minutes</span>
+    </div>
+
+    <div id="writing-timer" role="timer" aria-label="Time remaining">
+      15:00
+    </div>
+
+    <div class="timer-actions">
+      <button id="start-writing" type="button">
+        Start writing
+      </button>
+
+      <button id="reset-writing" type="button">
+        Reset
+      </button>
+    </div>
+
+    <p id="writing-status" role="status">
+      One sentence is a good start.
+    </p>
+
+    <div id="writing-complete" hidden>
+  <a
+    href="#power-reveal"
+    data-page="#power-reveal"
+    data-summary="#english-summary"
+  >
+    Reveal today's power →
+  </a>
+</div>
+
+    <div>
+      <a href="#tasks">← Back</a>
+    </div>
+  </div>
+</section>
+
+<section id="english-summary" hidden>
+  <div class="summary-content">
+    <p class="summary-eyebrow">YOUR ENGLISH · TODAY</p>
+
+    <h1>LOOK AT YOU GO.</h1>
+
+    <div class="summary-layout">
+      <div
+        id="english-pie"
+        role="img"
+        aria-label="No English study recorded today"
+      ></div>
+
+      <div class="summary-details">
+        <div class="score-row">
+          <span>📖 Reading</span>
+          <span>
+            <b id="reading-total">0</b> min ·
+            <b id="reading-score">0</b> pts
+          </span>
+        </div>
+
+        <div class="score-row">
+          <span>🎧 Listening</span>
+          <span>
+            <b id="listening-total">0</b> min ·
+            <b id="listening-score">0</b> pts
+          </span>
+        </div>
+
+        <div class="score-row">
+          <span>✍️ Writing</span>
+          <span>
+            <b id="writing-total">0</b> min ·
+            <b id="writing-score">0</b> pts
+          </span>
+        </div>
+
+        <p id="english-total-time">0 minutes today</p>
+
+        <p class="summary-score-label">TODAY'S ENGLISH SCORE</p>
+        <div id="english-final-score">0</div>
+
+        <p class="summary-footnote">
+          180 minutes = 100 points
+        </p>
+      </div>
+    </div>
+
+    <p id="summary-message" role="status"></p>
+
+    <a href="#tasks">Back to histogram →</a>
+  </div>
+</section>
+
+<section id="japanese" class="japanese-page" hidden>
+  <div class="japanese-content">
+
+    <p class="japanese-eyebrow">
+      JAPANESE - VOCABULARY
+    </p>
+
+    <h1>ONE WORD<br>AT A TIME.</h1>
+
+    <p class="japanese-question">
+      How long do you want to study Japanese vocabulary today?
+    </p>
+
+
+    <label for="vocabulary-minutes">
+      Your vocabulary time
+    </label>
+
+    <div class="custom-time-bar">
+      <input
+        id="vocabulary-minutes"
+        type="number"
+        min="1"
+        max="1440"
+        step="1"
+        value="15"
+        required
+      >
+
+      <span>minutes</span>
+    </div>
+
+    <div
+      id="vocabulary-timer"
+      role="timer"
+      aria-label="Time remaining"
+    >
+      15:00
+    </div>
+
+    <div class="timer-actions">
+      <button id="start-vocabulary" type="button">
+        Start vocabulary
+      </button>
+
+      <button id="reset-vocabulary" type="button">
+        Reset
+      </button>
+    </div>
+
+    <p id="vocabulary-status" role="status">
+      A little practice goes a long way.
+    </p>
+
+    <div id="vocabulary-complete" hidden>
+  <p>Session complete. Nice work!</p>
+
+  <a href="#japanese-practice" data-page="#japanese-practice">
+    Next → Listening & Grammar
+  </a>
+</div>
+
+<a href="#tasks">← Back to histogram</a>
+  </div>
+</section>
+
+<section id="japanese-practice" class="japanese-page" hidden>
+  <div class="japanese-content">
+
+    <p class="japanese-eyebrow">
+      JAPANESE · LISTENING & GRAMMAR
+    </p>
+
+    <h1>LISTEN.<br>LEARN.<br>REPEAT.</h1>
+
+    <p class="japanese-question">
+      How long do you want to practise listening and grammar today?
+    </p>
+
+
+    <label for="practice-minutes">
+      Your practice time
+    </label>
+
+    <div class="custom-time-bar">
+      <input
+        id="practice-minutes"
+        type="number"
+        min="1"
+        max="1440"
+        step="1"
+        value="15"
+        required
+      >
+
+      <span>minutes</span>
+    </div>
+
+    <div
+      id="practice-timer"
+      role="timer"
+      aria-label="Time remaining"
+    >
+      15:00
+    </div>
+
+    <div class="timer-actions">
+      <button id="start-practice" type="button">
+        Start practice
+      </button>
+
+      <button id="reset-practice" type="button">
+        Reset
+      </button>
+    </div>
+
+    <p id="practice-status" role="status">
+      A little better every day.
+    </p>
+
+    <div id="practice-complete" hidden>
+  <p>Session complete. Nice work!</p>
+
+  <a
+    href="#power-reveal"
+    data-page="#power-reveal"
+    data-summary="#japanese-summary"
+  >
+    Reveal today's power →
+  </a>
+</div>
+
+    <a href="#japanese" data-page="#japanese">
+      ← Back to vocabulary
+    </a>
+
+  </div>
+</section>
+
+<section id="japanese-summary" hidden>
+  <div class="summary-content">
+
+    <p class="summary-eyebrow">YOUR JAPANESE · TODAY</p>
+
+    <h1>A LITTLE MORE.<br>EVERY DAY.</h1>
+
+    <div class="summary-layout">
+
+      <div
+        id="japanese-pie"
+        role="img"
+        aria-label="No Japanese study recorded today"
+      ></div>
+
+      <div class="summary-details">
+
+        <div class="score-row">
+          <span>📖 Vocabulary</span>
+          <span>
+            <b id="jp-vocabulary-total">0</b> min ·
+            <b id="jp-vocabulary-score">0</b> pts
+          </span>
+        </div>
+
+        <div class="score-row">
+          <span>🎧 Listening & Grammar</span>
+          <span>
+            <b id="jp-practice-total">0</b> min ·
+            <b id="jp-practice-score">0</b> pts
+          </span>
+        </div>
+
+        <p id="jp-total-time">0 minutes today</p>
+
+        <p class="summary-score-label">
+          TODAY'S JAPANESE SCORE
+        </p>
+
+        <div id="jp-final-score">0</div>
+
+        <p class="summary-footnote">
+          180 minutes = 100 points
+        </p>
+
+      </div>
+    </div>
+
+    <p id="jp-summary-message" role="status"></p>
+
+    <a href="#tasks">Back to histogram →</a>
+
+  </div>
+</section>
+
+<!-- English 和 Japanese 共用的角色揭曉頁 -->
+<section
+  id="power-reveal"
+  aria-labelledby="power-heading"
+  hidden
+>
+  <!-- 左右幕簾：之後用 CSS 製作拉開效果 -->
+  <div class="power-curtain curtain-left" aria-hidden="true"></div>
+  <div class="power-curtain curtain-right" aria-hidden="true"></div>
+
+  <!-- 幕簾後面的內容 -->
+  <div class="power-content">
+    <p class="power-eyebrow">YOUR DAILY EFFORT · REVEALED</p>
+
+    <h1 id="power-heading">TODAY'S<br>POWER RANKING.</h1>
+
+    <p class="power-intro">
+      Today, your power takes the form of…
+    </p>
+
+    <!-- JavaScript 之後會更新等級和角色名稱 -->
+    <div class="power-identity">
+      <p id="power-grade">等待揭曉</p>
+      <h2 id="power-character">WHO WILL IT BE?</h2>
+    </div>
+
+    <!-- JavaScript 選好角色後，會加入 GIF 路徑並顯示圖片 -->
+    <div class="power-image-frame">
+      <img id="power-gif" alt="" hidden>
+    </div>
+
+    <!-- 今日所有範疇的總分 -->
+    <div class="power-score-box">
+      <p class="power-score-label">TODAY'S TOTAL SCORE</p>
+
+      <div class="power-score-line">
+        <strong id="power-score">0</strong>
+        <span>POINTS</span>
+      </div>
+    </div>
+
+    <p id="power-message">Every minute of effort counts.</p>
+
+    <!-- JavaScript 會按進入來源，更新這個按鈕的目的地 -->
+    <a
+      id="power-next"
+      class="power-next-button"
+      href="#english-summary"
+      data-page="#english-summary"
+    >
+      Next →
+    </a>
+  </div>
+</section>
+
+<!-- Fitness 分類選擇頁 -->
+<section id="fitness" class="fitness-page" hidden>
+  <div class="fitness-content">
+
+    <p class="fitness-eyebrow">FITNESS · CHOOSE YOUR TRAINING</p>
+
+    <h1>HOW DID<br>YOU MOVE?</h1>
+
+    <p class="fitness-question">
+      Choose your training for today.
+    </p>
+
+    <div class="fitness-categories">
+
+      <button
+        class="fitness-category-card"
+        type="button"
+        data-page="#fitness-home"
+      >
+        <span class="fitness-category-icon" aria-hidden="true">🏠</span>
+        <span class="fitness-category-title">Home Workout</span>
+        <span class="fitness-category-description">
+          Your space. Your pace.
+        </span>
+        <span class="fitness-category-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button
+        class="fitness-category-card"
+        type="button"
+        data-page="#fitness-bjj"
+      >
+        <span class="fitness-category-icon" aria-hidden="true">🥋</span>
+        <span class="fitness-category-title">BJJ</span>
+        <span class="fitness-category-description">
+          Time on the mats.
+        </span>
+        <span class="fitness-category-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <button
+        class="fitness-category-card"
+        type="button"
+        data-page="#fitness-gym"
+      >
+        <span class="fitness-category-icon" aria-hidden="true">🏋️</span>
+        <span class="fitness-category-title">Gym</span>
+        <span class="fitness-category-description">
+          Build your strength.
+        </span>
+        <span class="fitness-category-arrow" aria-hidden="true">→</span>
+      </button>
+
+    </div>
+
+    <p id="fitness-progress" role="status">
+  Save all three sections to reveal your character.
+</p>
+
+<button
+  id="reveal-fitness"
+  type="button"
+  data-page="#power-reveal"
+  data-category="fitness"
+  data-summary="#tasks"
+  disabled
+>
+  Reveal my fitness power →
+</button>
+
+    <a href="#tasks">← Back to histogram</a>
+
+  </div>
+</section>
+
+<!-- Home Workout 每日紀錄 -->
+<section id="fitness-home" class="fitness-page" hidden>
+  <div class="fitness-content">
+
+    <p class="fitness-eyebrow">FITNESS · HOME WORKOUT</p>
+
+    <h1>YOUR SPACE.<br>YOUR EFFORT.</h1>
+
+    <p class="fitness-question">
+      What have you done today?
+    </p>
+
+    <p class="workout-note">
+      Enter today's totals. You can update them later.
+    </p>
+
+    <div class="home-workout-fields">
+
+      <!-- 掌上壓 -->
+      <div class="workout-question">
+        <label for="home-pushups">
+          01 · How many push-ups did you do?
+        </label>
+
+        <div class="workout-input-row">
+          <input
+            id="home-pushups"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+            required
+            aria-describedby="home-pushups-help"
+          >
+          <span>reps</span>
+        </div>
+
+        <p id="home-pushups-help" class="workout-hint">
+          0.05 points per rep · Maximum 5 points
+        </p>
+
+        <p class="workout-item-score">
+          <span id="home-pushups-score">0</span> / 5 points
+        </p>
+      </div>
+
+      <!-- 深蹲 -->
+      <div class="workout-question">
+        <label for="home-squats">
+          02 · How many squats did you do?
+        </label>
+
+        <div class="workout-input-row">
+          <input
+            id="home-squats"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+            required
+            aria-describedby="home-squats-help"
+          >
+          <span>reps</span>
+        </div>
+
+        <p id="home-squats-help" class="workout-hint">
+          0.05 points per rep · Maximum 5 points
+        </p>
+
+        <p class="workout-item-score">
+          <span id="home-squats-score">0</span> / 5 points
+        </p>
+      </div>
+
+      <!-- 仰臥起坐 -->
+      <div class="workout-question">
+        <label for="home-situps">
+          03 · How many sit-ups did you do?
+        </label>
+
+        <div class="workout-input-row">
+          <input
+            id="home-situps"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+            required
+            aria-describedby="home-situps-help"
+          >
+          <span>reps</span>
+        </div>
+
+        <p id="home-situps-help" class="workout-hint">
+          0.05 points per rep · Maximum 5 points
+        </p>
+
+        <p class="workout-item-score">
+          <span id="home-situps-score">0</span> / 5 points
+        </p>
+      </div>
+
+      <!-- 伸展 -->
+      <div class="workout-question">
+        <label for="home-stretching">
+          04 · How many minutes did you stretch?
+        </label>
+
+        <div class="workout-input-row">
+          <input
+            id="home-stretching"
+            type="number"
+            min="0"
+            step="any"
+            value="0"
+            required
+            aria-describedby="home-stretching-help"
+          >
+          <span>minutes</span>
+        </div>
+
+        <p id="home-stretching-help" class="workout-hint">
+          1 point per 6 minutes · Maximum 5 points
+        </p>
+
+        <p class="workout-item-score">
+          <span id="home-stretching-score">0</span> / 5 points
+        </p>
+      </div>
+
+    </div>
+
+    <!-- 總分預覽 -->
+    <div class="home-workout-total">
+      <p>TODAY'S HOME WORKOUT SCORE</p>
+
+      <div>
+        <strong id="home-workout-score">0</strong>
+        <span>/ 20 points</span>
+      </div>
+    </div>
+
+    <button id="save-home-workout" type="button">
+      Save today's workout →
+    </button>
+
+    <p id="home-workout-status" role="status">
+      Ready when you are.
+    </p>
+
+
+
+    <a href="#fitness" data-page="#fitness">
+      ← Back to fitness
+    </a>
+
+  </div>
+</section>
+
+<!-- BJJ 每日紀錄 -->
+<section id="fitness-bjj" class="fitness-page" hidden>
+  <div class="fitness-content">
+
+    <p class="fitness-eyebrow">FITNESS · BJJ</p>
+
+    <h1>DID YOU<br>HIT THE MATS?</h1>
+
+    <fieldset class="bjj-options">
+      <legend>Did you go to the BJJ gym today?</legend>
+
+      <label class="bjj-option">
+        <input
+          type="radio"
+          name="bjj-attended"
+          value="yes"
+        >
+        <span>Yes, I went!</span>
+        <span class="bjj-option-points">40 points</span>
+      </label>
+
+      <label class="bjj-option">
+        <input
+          type="radio"
+          name="bjj-attended"
+          value="no"
+        >
+        <span>No, not today.</span>
+        <span class="bjj-option-points">0 points</span>
+      </label>
+    </fieldset>
+
+    <button id="save-bjj" type="button">
+  Save today's BJJ →
+</button>
+
+<p id="bjj-status" role="status">
+  Choose an answer, then save.
+</p>
+
+<a href="#fitness" data-page="#fitness">
+  ← Back to fitness
+</a>
+  </div>
+</section>
+
+<!-- Gym 每日紀錄 -->
+<section id="fitness-gym" class="fitness-page" hidden>
+  <div class="fitness-content">
+
+    <p class="fitness-eyebrow">FITNESS · GYM</p>
+
+    <h1>TIME WELL<br>SPENT.</h1>
+
+    <p class="fitness-question">
+      How long did you spend at the gym today?
+    </p>
+
+    <p class="gym-note">
+      Enter today's total. Enter 0 if you didn't go.
+    </p>
+
+    <label for="gym-minutes">Your gym time</label>
+
+    <div class="gym-input-row">
+      <input
+        id="gym-minutes"
+        type="number"
+        min="0"
+        step="any"
+        placeholder="0"
+        required
+      >
+      <span>minutes</span>
+    </div>
+
+    <div class="gym-score-box">
+      <p>TODAY'S GYM SCORE</p>
+
+      <div>
+        <strong id="gym-score">0</strong>
+        <span>/ 40 points</span>
+      </div>
+    </div>
+
+    <button id="save-gym" type="button">
+      Save today's gym →
+    </button>
+
+    <p id="gym-status" role="status">
+      Enter your time, then save.
+    </p>
+
+    <a href="#fitness" data-page="#fitness">
+      ← Back to fitness
+    </a>
+
+  </div>
+</section>
+
+</body>
+</html>
